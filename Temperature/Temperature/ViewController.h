@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <UITextFieldDelegate>
+
+@property (weak, nonatomic) IBOutlet UITextField *textFieldTemperature;
+@property (weak, nonatomic) IBOutlet UILabel *labelFinal;
+- (IBAction)btnPressedF2C:(id)sender;
+- (IBAction)btnPressedC2F:(id)sender;
+
+
+
 
 @end
