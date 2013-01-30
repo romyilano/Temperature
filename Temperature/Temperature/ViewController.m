@@ -9,7 +9,7 @@
 #import "ViewController.h"
 
 @interface ViewController ()
-
+// stanford paul h. says we don't have to do forward declaration of private methods anymore but some people like it
 @end
 
 @implementation ViewController
@@ -37,17 +37,31 @@
 {
     [self.textFieldTemperature resignFirstResponder];
 }
+
+
 // this is the boilerplate - need to reead the documentation
 // the text field clals this method whenever the user taps the return button. you can use this method to implement any custom behavior when the button is tapped
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [self.textFieldTemperature resignFirstResponder];
+
+    // bugfix! should calculate!
+    [self showConversion];
+    
+    
     return NO;
 }
 
 #pragma mark-Action Methods
 - (IBAction)btnPressedGo:(id)sender {
     
+    [self showConversion];
+   
+    
+}
+
+-(void)showConversion
+{
     if(self.segmentedControlTemperatures.selectedSegmentIndex == 0)
     {
         // f to c
@@ -75,6 +89,6 @@
         
     }
     
-    
 }
+
 @end
