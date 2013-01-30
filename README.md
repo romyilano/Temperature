@@ -24,3 +24,6 @@ Doing this tutorial, I'm inspired by the creativity of the other people in my cl
 * Asian temperatures in Number (?)
 
 
+
+# Sources
+* ToolBar for the Numeric Keyboard - http://stackoverflow.com/questions/9079815/trying-to-add-done-button-to-numeric-keyboard

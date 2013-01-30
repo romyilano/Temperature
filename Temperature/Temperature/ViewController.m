@@ -22,6 +22,8 @@
     
     self.labelFinal.text = @"Enter a temperature to be converted";
     
+    [self makeToolBar];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -91,6 +93,38 @@
         
     }
     
+}
+
+-(void)makeToolBar
+{
+    UIToolbar *numberToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 320, 50)];
+    numberToolbar.barStyle=UIBarStyleBlackTranslucent;
+  
+    UIBarButtonItem *bbiCancel = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancelNumberPad)];
+    
+    UIBarButtonItem *bbiFlex = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    UIBarButtonItem *bbiDone = [[UIBarButtonItem alloc] initWithTitle:@"Apply" style:UIBarButtonSystemItemDone target:self action:@selector(doneWithNumberPad)];
+ 
+    numberToolbar.items = [NSArray arrayWithObjects:bbiCancel, bbiFlex, bbiDone ,nil];
+    
+    [numberToolbar sizeToFit];
+    
+    self.textFieldTemperature.inputAccessoryView = numberToolbar;
+}
+
+-(void)cancelNumberPad
+{
+    [self.textFieldTemperature resignFirstResponder];
+    self.textFieldTemperature.text = @"";
+    
+}
+
+-(void)doneWithNumberPad
+{
+
+    [self showConversion];
+    
+    [self.textFieldTemperature resignFirstResponder];
 }
 
 #pragma mark-UIResponder
