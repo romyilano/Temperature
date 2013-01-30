@@ -18,67 +18,84 @@
                                     <constraint firstAttribute="width" constant="183" id="KY2-v3-qoO"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="2" id="oRo-5Z-OGo"/>
+                                </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mib-ma-Uli">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Convert:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TdZ-Yp-hrH">
+                                <color key="backgroundColor" red="0.25098040699958801" green="0.0" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="190" id="5dS-mB-DV0"/>
+                                    <constraint firstAttribute="width" constant="104" id="NNE-t3-S2h"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Fahrenheit to Celsius">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="btnPressedF2C:" destination="2" eventType="touchUpInside" id="Vrp-UD-dKh"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="er3-HN-0iq">
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Celsius To Fahrenheit">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="btnPressedC2F:" destination="2" eventType="touchUpInside" id="bQm-nq-eVh"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Enter a temperature" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="222" translatesAutoresizingMaskIntoConstraints="NO" id="FtB-nl-Ykn">
-                                <color key="backgroundColor" red="0.96561248420000001" green="1" blue="0.95314652700000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="222" translatesAutoresizingMaskIntoConstraints="NO" id="FtB-nl-Ykn">
+                                <color key="backgroundColor" red="0.25098040699958801" green="0.0" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="3lT-qz-G8n"/>
                                     <constraint firstAttribute="width" constant="222" id="r7Q-te-qCX"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Your temperature is:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fVr-yX-3iY">
+                                <color key="backgroundColor" red="0.25098040699958801" green="0.0" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="209" id="KUb-qG-JJo"/>
+                                    <constraint firstAttribute="height" constant="37" id="ceI-ea-9H7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P2l-Ic-Yzb">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Go">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnPressedGo:" destination="2" eventType="touchUpInside" id="6aN-3t-GM9"/>
+                                </connections>
+                            </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Owv-Q7-uA4">
+                                <segments>
+                                    <segment title="F to C"/>
+                                    <segment title="C to F"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="er3-HN-0iq" firstAttribute="top" secondItem="Mib-ma-Uli" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="AwP-OX-8nP"/>
-                            <constraint firstItem="FtB-nl-Ykn" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="53" id="BPX-TB-Blb"/>
-                            <constraint firstItem="Mib-ma-Uli" firstAttribute="top" secondItem="3" secondAttribute="top" constant="127" id="DMS-Dl-2Br"/>
-                            <constraint firstItem="bf4-6D-QbH" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="39" id="JjS-1e-NqK"/>
+                            <constraint firstItem="fVr-yX-3iY" firstAttribute="centerX" secondItem="FtB-nl-Ykn" secondAttribute="centerX" type="default" id="4FR-xe-vhE"/>
+                            <constraint firstItem="Owv-Q7-uA4" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="157" id="8VM-yv-XzV"/>
+                            <constraint firstItem="TdZ-Yp-hrH" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="33" id="8cP-cu-YmG"/>
+                            <constraint firstItem="Owv-Q7-uA4" firstAttribute="top" secondItem="TdZ-Yp-hrH" secondAttribute="top" type="default" id="KHf-Ld-g1y"/>
+                            <constraint firstItem="Owv-Q7-uA4" firstAttribute="centerY" secondItem="TdZ-Yp-hrH" secondAttribute="centerY" type="default" id="LAP-W6-bGn"/>
                             <constraint firstItem="E4e-ji-QKH" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="LP7-bS-nVX"/>
-                            <constraint firstItem="er3-HN-0iq" firstAttribute="leading" secondItem="Mib-ma-Uli" secondAttribute="leading" type="default" id="LZW-gc-X5n"/>
-                            <constraint firstItem="FtB-nl-Ykn" firstAttribute="top" secondItem="3" secondAttribute="top" constant="242" id="OLv-RK-os0"/>
+                            <constraint firstItem="P2l-Ic-Yzb" firstAttribute="top" secondItem="3" secondAttribute="top" constant="139" id="NjL-54-N5N"/>
+                            <constraint firstItem="FtB-nl-Ykn" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="55" id="No9-Yn-rCy"/>
+                            <constraint firstItem="Owv-Q7-uA4" firstAttribute="top" secondItem="3" secondAttribute="top" constant="75" id="a88-xg-sno"/>
+                            <constraint firstAttribute="bottom" secondItem="FtB-nl-Ykn" secondAttribute="bottom" constant="169" id="bEC-Ez-u1S"/>
+                            <constraint firstAttribute="trailing" secondItem="P2l-Ic-Yzb" secondAttribute="trailing" constant="37" id="fQL-ea-1eH"/>
                             <constraint firstItem="E4e-ji-QKH" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="hpR-F6-Mnt"/>
-                            <constraint firstItem="bf4-6D-QbH" firstAttribute="top" secondItem="3" secondAttribute="top" constant="71" id="iAC-Fe-Qmg"/>
+                            <constraint firstItem="bf4-6D-QbH" firstAttribute="baseline" secondItem="P2l-Ic-Yzb" secondAttribute="baseline" type="default" id="kNt-ny-J0t"/>
+                            <constraint firstItem="fVr-yX-3iY" firstAttribute="top" secondItem="3" secondAttribute="top" constant="243" id="lfy-2E-Ks5"/>
+                            <constraint firstItem="bf4-6D-QbH" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="39" id="nSy-kC-lPo"/>
                             <constraint firstItem="E4e-ji-QKH" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="rBy-bB-JFC"/>
-                            <constraint firstItem="er3-HN-0iq" firstAttribute="trailing" secondItem="Mib-ma-Uli" secondAttribute="trailing" type="default" id="sCi-MT-dJd"/>
                             <constraint firstItem="E4e-ji-QKH" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="u7c-dk-q1t"/>
-                            <constraint firstItem="Mib-ma-Uli" firstAttribute="leading" secondItem="bf4-6D-QbH" secondAttribute="leading" type="default" id="xlZ-5U-EIJ"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="labelFinal" destination="FtB-nl-Ykn" id="0dN-39-Hr5"/>
+                        <outlet property="segmentedControlTemperatures" destination="Owv-Q7-uA4" id="0eF-fw-Qz9"/>
                         <outlet property="textFieldTemperature" destination="bf4-6D-QbH" id="rie-iB-hQE"/>
                     </connections>
                 </viewController>
@@ -96,9 +113,9 @@
         <class className="ViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
             <relationships>
-                <relationship kind="action" name="btnPressedC2F:"/>
-                <relationship kind="action" name="btnPressedF2C:"/>
+                <relationship kind="action" name="btnPressedGo:"/>
                 <relationship kind="outlet" name="labelFinal" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="segmentedControlTemperatures" candidateClass="UISegmentedControl"/>
                 <relationship kind="outlet" name="textFieldTemperature" candidateClass="UITextField"/>
             </relationships>
         </class>

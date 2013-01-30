@@ -10,11 +10,10 @@
 
 @interface ViewController : UIViewController <UITextFieldDelegate>
 
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControlTemperatures;
 @property (weak, nonatomic) IBOutlet UITextField *textFieldTemperature;
 @property (weak, nonatomic) IBOutlet UILabel *labelFinal;
-- (IBAction)btnPressedF2C:(id)sender;
-- (IBAction)btnPressedC2F:(id)sender;
-
+- (IBAction)btnPressedGo:(id)sender;
 
 
 

@@ -18,6 +18,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    self.labelFinal.text = @"Enter a temperature to be converted";
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -26,33 +29,52 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)btnPressedF2C:(id)sender {
-    
-    // convert fahrenheit to celsius
-    // c = (f-32) * 5/9
-    
-    double startingFahrenheit = [self.textFieldTemperature.text doubleValue];
-    
-    double finalCelsius = (startingFahrenheit - 32) * 5.0/9.0;
-    
-    // this is a nice one to review
-    self.labelFinal.text = [NSString stringWithFormat:@"%0.2f", finalCelsius];
+#pragma mark-UITextFieldDelegate
+
+// talk in class - why doesn't this work?
+// I didn't read the documentation clearly enough
+-(void)textFieldDidEndEditing:(UITextField *)textField
+{
     [self.textFieldTemperature resignFirstResponder];
-    
+}
+// this is the boilerplate - need to reead the documentation
+// the text field clals this method whenever the user taps the return button. you can use this method to implement any custom behavior when the button is tapped
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [self.textFieldTemperature resignFirstResponder];
+    return NO;
 }
 
-- (IBAction)btnPressedC2F:(id)sender {
+#pragma mark-Action Methods
+- (IBAction)btnPressedGo:(id)sender {
     
-    // convert celsius to fahrenheit
-    double startingCelsius = [self.textFieldTemperature.text doubleValue];
+    if(self.segmentedControlTemperatures.selectedSegmentIndex == 0)
+    {
+        // f to c
+        double startingTemperature = [self.textFieldTemperature.text doubleValue];
+        
+        double finalTemp = (startingTemperature - 32.0) * 5.0/9.0;
+        
+        self.labelFinal.text = [NSString stringWithFormat:@"%1.2f", finalTemp];
+        
+        [self.textFieldTemperature resignFirstResponder];
+        
+    }
     
-    double finalFahrenheit = (startingCelsius * 9.0/5.0) + 32;
+    else if (self.segmentedControlTemperatures.selectedSegmentIndex == 1)
+    {
+        // c to f
+        
+        double startingTemperature = [self.textFieldTemperature.text doubleValue];
+        
+        double finalTemperature = startingTemperature * 9.0/5.0 + 32.0;
+        
+        self.labelFinal.text = [NSString stringWithFormat:@"%1.2f", finalTemperature];
+        
+        [self.textFieldTemperature resignFirstResponder];
+        
+    }
     
-    self.labelFinal.text = [NSString stringWithFormat:@"%0.2f", finalFahrenheit];
-    
-    [self.textFieldTemperature resignFirstResponder];
     
 }
-
-
 @end
