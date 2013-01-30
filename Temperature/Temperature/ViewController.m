@@ -10,6 +10,7 @@
 
 @interface ViewController ()
 // stanford paul h. says we don't have to do forward declaration of private methods anymore but some people like it
+-(void)showConversion;
 @end
 
 @implementation ViewController
@@ -60,6 +61,7 @@
     
 }
 
+#pragma mark-Custom Methods
 -(void)showConversion
 {
     if(self.segmentedControlTemperatures.selectedSegmentIndex == 0)
@@ -91,4 +93,21 @@
     
 }
 
+#pragma mark-UIResponder
+-(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self.textFieldTemperature resignFirstResponder];
+}
+
+
+/*
+ 
+ For some reason this didn't work; "worked before"
+ changed UIView to a UIControl
+// I learned this from Big Nerd Ranch
+- (IBAction)backgroundTapped:(id)sender {
+    
+    [[self view]endEditing:YES];
+}
+ */
 @end
