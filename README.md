@@ -13,7 +13,7 @@ Requirements:
 * Conform to the UITextFieldDelegate Protocol, so when you tap the return key your calculation is run.
 
 ### "Extra credit"
-* _Didn't Do it Yet_ Require only numbers to be added to the text field (make sure you can type negative numbers!)
+* sRequire only numbers to be added to the text field (make sure you can type negative numbers!)
 * _did it_ Change your keyboard to show numbers
 * _Yay_ Make it pretty (add images, different colors, fonts, etc)
 
@@ -27,3 +27,4 @@ Doing this tutorial, I'm inspired by the creativity of the other people in my cl
 
 # Sources
 * ToolBar for the Numeric Keyboard - http://stackoverflow.com/questions/9079815/trying-to-add-done-button-to-numeric-keyboard
+* Shiny - UISegmentedControl Class Reference - http://developer.apple.com/library/ios/#documentation/UIKit/Reference/UISegmentedControl_Class/Reference/UISegmentedControl.html

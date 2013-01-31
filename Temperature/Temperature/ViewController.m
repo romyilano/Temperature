@@ -39,11 +39,12 @@
 
 #pragma mark-UITextFieldDelegate
 
-// talk in class - why doesn't this work?
-// I didn't read the documentation clearly enough
+
 -(void)textFieldDidEndEditing:(UITextField *)textField
 {
-    [self.textFieldTemperature resignFirstResponder];
+   
+    // check to see if they have inputted numbers only
+    [self checkInput];
 }
 
 
@@ -59,6 +60,7 @@
     
     return NO;
 }
+
 
 #pragma mark-Action Methods
 - (IBAction)btnPressedGo:(id)sender {
@@ -102,8 +104,11 @@
 
 -(void)showConversion
 {
+    // depending on which segmented control is tapped, the nenter this
     
     // ugly way to do it, less efficient too
+    // i want to make this switch
+    
     
     if(self.segmentedControlTemperatures.selectedSegmentIndex == 0)
     {
@@ -124,11 +129,29 @@
     
 }
 
+// make sure you can only enter numbers (negative or positive)
 -(void)checkInput
 {
     // make sure that the user is entering a float
     
     // to-do
+    // make a character set
+    // source - http://stackoverflow.com/questions/10734959/uitextfield-should-accept-number-only-values
+    NSCharacterSet *set = [[NSCharacterSet characterSetWithCharactersInString:@"0123456789-+"] invertedSet];
+    
+    if([self.textFieldTemperature.text rangeOfCharacterFromSet:set].location!=NSNotFound) {
+        // show alert view here
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Use Numbers Only"
+                                                        message:@"Please only enter numbers" delegate:self
+                                              cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        
+        [alert show];
+        
+        self.textFieldTemperature.text= @"";
+    }
+    
+    
 }
 
 // convert f to c
