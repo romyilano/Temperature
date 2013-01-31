@@ -22,6 +22,8 @@
     
     self.labelFinal.text = @"Enter a temperature to be converted";
     
+    
+    [self styleUISegmentedControl];
     // make the toolbar that appears above the keyboard
     [self makeToolBar];
     
@@ -210,6 +212,19 @@
     
     [self.textFieldTemperature resignFirstResponder];
 }
+
+
+-(void)styleUISegmentedControl
+{
+    
+    UIFont *font = [UIFont fontWithName:@"Helvetica Neue" size:15.0];
+    
+    NSDictionary *attributes = [NSDictionary dictionaryWithObject:font forKey:UITextAttributeFont];
+    
+    [self.segmentedControlTemperatures setTitleTextAttributes:attributes forState:UIControlStateNormal];
+    
+}
+
 
 #pragma mark-UIResponder
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
