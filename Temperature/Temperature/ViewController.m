@@ -22,7 +22,12 @@
     
     self.labelFinal.text = @"Enter a temperature to be converted";
     
+    // make the toolbar that appears above the keyboard
     [self makeToolBar];
+    
+    [self.segmentedControlTemperatures addTarget:self
+                                          action:@selector(pickOne:)
+                                forControlEvents:UIControlEventValueChanged];
     
 }
 
@@ -58,23 +63,52 @@
 #pragma mark-Action Methods
 - (IBAction)btnPressedGo:(id)sender {
     
+    
+    
+    
     [self showConversion];
    
     
 }
 
 #pragma mark-Custom Methods
+
+
+-(void)pickOne:(id)sender
+{
+    
+    // thanks Shiny!
+    // the segmented control assigned to the (id)sender
+    // since we already know what the class is, we put it in (instead of id)
+    //      terminology for that
+    UISegmentedControl *segmentedControl = (UISegmentedControl *)sender;
+    NSInteger selectedSegment = [segmentedControl selectedSegmentIndex];
+    
+    // do stuff
+    if(selectedSegment == 0)
+    {
+        [self convertFtoC];
+        
+        [self.textFieldTemperature resignFirstResponder];
+    }
+    else
+    {
+        [self convertCtoF];
+        
+        [self.textFieldTemperature resignFirstResponder];
+        
+    }
+}
+
 -(void)showConversion
 {
+    
+    // ugly way to do it, less efficient too
+    
     if(self.segmentedControlTemperatures.selectedSegmentIndex == 0)
     {
-        // f to c
-        double startingTemperature = [self.textFieldTemperature.text doubleValue];
-        
-        double finalTemp = (startingTemperature - 32.0) * 5.0/9.0;
-        
-        self.labelFinal.text = [NSString stringWithFormat:@"%1.2f", finalTemp];
-        
+        [self convertFtoC];
+               
         [self.textFieldTemperature resignFirstResponder];
         
     }
@@ -82,18 +116,44 @@
     else if (self.segmentedControlTemperatures.selectedSegmentIndex == 1)
     {
         // c to f
-        
-        double startingTemperature = [self.textFieldTemperature.text doubleValue];
-        
-        double finalTemperature = startingTemperature * 9.0/5.0 + 32.0;
-        
-        self.labelFinal.text = [NSString stringWithFormat:@"%1.2f", finalTemperature];
+        [self convertCtoF];
         
         [self.textFieldTemperature resignFirstResponder];
         
     }
     
 }
+
+-(void)checkInput
+{
+    // make sure that the user is entering a float
+    
+    // to-do
+}
+
+// convert f to c
+-(void)convertFtoC
+{
+    // f to c
+    double startingTemperature = [self.textFieldTemperature.text doubleValue];
+    
+    double finalTemp = (startingTemperature - 32.0) * 5.0/9.0;
+    
+    self.labelFinal.text = [NSString stringWithFormat:@"%1.2f", finalTemp];
+
+}
+
+// convert c to f
+-(void)convertCtoF
+{
+    double startingTemperature = [self.textFieldTemperature.text doubleValue];
+    
+    double finalTemperature = startingTemperature * 9.0/5.0 + 32.0;
+    
+    self.labelFinal.text = [NSString stringWithFormat:@"%1.2f", finalTemperature];
+    
+}
+
 
 -(void)makeToolBar
 {
@@ -103,6 +163,7 @@
     UIBarButtonItem *bbiCancel = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancelNumberPad)];
     
     UIBarButtonItem *bbiFlex = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    // to-do customize the uibarbuttonitem using UIAppearance
     UIBarButtonItem *bbiDone = [[UIBarButtonItem alloc] initWithTitle:@"Apply" style:UIBarButtonSystemItemDone target:self action:@selector(doneWithNumberPad)];
  
     numberToolbar.items = [NSArray arrayWithObjects:bbiCancel, bbiFlex, bbiDone ,nil];
